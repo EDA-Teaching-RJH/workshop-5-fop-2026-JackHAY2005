@@ -1,7 +1,17 @@
+# **"Statement of Requirements"**
+# **Functional Requirements:** 
+#  What inputs (specific coin integers) does the system accept? 50p, 20p, 10p, 5p
+#  What is the exact output (change calculation)? Total amount entered, amount still owed, and change if total exceeds 75p.
+# **Non-Functional Requirements:** 
+# How should the system behave if the user inputs a string (e.g., "ten pence") instead of an integer? It doesnt accept it and prompts the user to enter a valid coin.
 def main():
     total = 0
     while total < 75:
-        input_coins = int(input("Please enter coins. "))
+        input_coins = input("Please enter a coin (5, 10, 20, or 50): ")
+        if not input_coins.isdigit():
+            print("Invalid input. Please enter a valid coin value.")
+            continue
+        input_coins = int(input_coins)
         if total == 75:
             print("You have entered 75p. You can buy a coffee.")
         elif input_coins == 0:
